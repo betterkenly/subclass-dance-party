@@ -1,15 +1,15 @@
 var TangoDancer = function(top, left, timeBetweenSteps){
-  Dancer.call(this,top,left,timeBetweenSteps);
+  OrbitDancer.call(this,top,left,timeBetweenSteps);
   this.color = 'grey';
   this.pairing = false;
   this.findPair();
 
 };
 
-TangoDancer.prototype = Object.create(Dancer.prototype);
+TangoDancer.prototype = Object.create(OrbitDancer.prototype);
 TangoDancer.prototype.constructor = TangoDancer;
 TangoDancer.prototype.step = function(){
-  Dancer.prototype.step.call(this);
+  OrbitDancer.prototype.step.call(this);
   if(!!this.pairing){
       var dx = this.$node.css('left').replace('px','')-this.pairing.$node.css('left').replace('px','')
       var dy = this.$node.css('top').replace('px','')-this.pairing.$node.css('top').replace('px','')
@@ -20,22 +20,20 @@ TangoDancer.prototype.step = function(){
 
       if(dx > 50){
         this.$node.css({left:'-='+dxdc+'px'})
+        this.cx = this.cx - dxdc;
       } else if(dx<-50){
         this.$node.css({left:'+='+dxdc+'px'})
+        this.cx = this.cx + dxdc;
       }
 
       if(dy > 50){
         this.$node.css({top:'-='+dydc+'px'})
+        this.cy = this.cy - dydc
       } else if(dy<-50){
         this.$node.css({top:'+='+dydc+'px'})
+        this.cy = this.cy + dydc;
       }
 
-      if(Math.abs(dy)<50 && Math.abs(dx)<50){
-        var random = Math.floor(Math.random()*3)-1;
-        //console.log(random);
-        this.$node.css({top:'+='+random+'px'});
-        this.$node.css({left:'+='+random+'px'});
-      }
   }
 }
 

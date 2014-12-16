@@ -34,10 +34,19 @@ $(document).ready(function(){
 
   
   var group = true;
+  var orientation = 'x'
   $('body').on('dblclick',function(e){
     if(group){
-      for(var i = 0; i<window.dancers.length; i++){
-        window.dancers[i].lineUp(e.clientX);
+      if(orientation === 'x'){ 
+        for(var i = 0; i<window.dancers.length; i++){
+          window.dancers[i].lineUp(e.clientX,e.clientY,'x');
+        }
+        orientation = 'y';
+      } else if(orientation === 'y'){
+        for(var i = 0; i<window.dancers.length; i++){
+          window.dancers[i].lineUp(e.clientX,e.clientY,'y');
+        }
+        orientation = 'x';
       }
       group = false;
     } else {
@@ -48,8 +57,6 @@ $(document).ready(function(){
     }
   })
 
-  $('body').on('click',function(e){
-    console.log(e.clientX, e.clientY);
-  })
+
 });
 

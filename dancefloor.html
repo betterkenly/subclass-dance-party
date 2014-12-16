@@ -8,6 +8,7 @@
     <script src="src/blinkyDancer.js"></script>
     <script src="src/swingDancer.js"></script>
     <script src="src/stretchDancer.js"></script>
+    <script src="src/orbitDancer.js"></script>
     <script src="src/tangoDancer.js"></script>
   </head>
   <body>
@@ -16,7 +17,8 @@
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">blinky</a>    
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="SwingDancer">swing</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="StretchDancer">stretch</a>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="TangoDancer">tango</a>  
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="TangoDancer">tango</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="OrbitDancer">orbit</a>    
 
 
     </div>
@@ -29,9 +31,9 @@
           });
         })
         $('body').on('mouseenter','.dancer',function(){
-          $(this).hide('slow');
+          $(this).animate({width: '-=50px', height: '-=50px'})
         }).on('mouseleave','.dancer',function(){
-          $(this).show('show');
+          $(this).animate({width: '+=50px', height: '+=50px'})
         })
       });
     </script>

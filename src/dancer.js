@@ -23,8 +23,25 @@ Dancer.prototype.step = function(){
   setTimeout(this.step.bind(this), this.timeBetweenSteps);
 }
 
-Dancer.prototype.lineUp = function(x){
-  this.$node.animate({left: x+'px'});
+Dancer.prototype.lineUp = function(x,y,orientation){
+  if(orientation === 'x'){
+    this.$node.animate({left: x+'px'});
+  } else if (orientation === 'y'){
+    this.$node.animate({top: y+'px'});
+  }
+}
+
+Dancer.prototype.orbit = function(x,y){
+  var dx = this.$node.css('left').replace('px','')-x;
+  var dy = this.$node.css('top').replace('px','')-y;
+  var dc = Math.sqrt(dx*dx+dy*dy);
+
+  //
+  var dxdc = x + dc * Math.sin(1);
+  var dydc = y + dc * Math.cos(1); 
+
+  console.log(dxdc,dydc);
+  this.$node.animate({left: dxdc+'px', top: dydc+'px'});
 }
 
 Dancer.prototype.setPosition = function(top, left){
@@ -39,6 +56,6 @@ Dancer.prototype.setPosition = function(top, left){
 };
 
 Dancer.prototype.ungroup = function(){
-  this.$node.animate({left: this.left+'px'});
+  this.$node.animate({left: this.left+'px', top: this.top+'px'});
 }
 
