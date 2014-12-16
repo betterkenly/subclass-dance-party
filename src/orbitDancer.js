@@ -11,16 +11,16 @@ OrbitDancer.prototype = Object.create(Dancer.prototype);
 OrbitDancer.prototype.constructor = Dancer;
 OrbitDancer.prototype.lineUp = function(x,y,orientation){
   if(orientation === 'x'){
-    this.$node.animate({left: x+'px'},'slow');
+    this.$node.css({left: x+'px'},'slow');
     this.cx = x;
   } else if (orientation === 'y'){
-    this.$node.animate({top: y+'px'},'slow');
+    this.$node.css({top: y+'px'},'slow');
     this.cy = y;
   }
 }
 
 OrbitDancer.prototype.ungroup = function(){
-  this.$node.animate({left: this.left+'px', top: this.top+'px'});
+  this.$node.css({left: this.left+'px', top: this.top+'px'});
   this.cx = this.left;
   this.cy = this.top
 }
@@ -39,6 +39,6 @@ OrbitDancer.prototype.step = function(){
   }
   this.radian = this.radian+this.radius/1800;
 
-  console.log(dxdc,dydc);
+  //console.log(dxdc,dydc);
   this.$node.css({left: ''+dxdc+'px', top: ''+dydc+'px'});
 }

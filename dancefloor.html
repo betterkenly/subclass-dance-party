@@ -10,6 +10,8 @@
     <script src="src/stretchDancer.js"></script>
     <script src="src/orbitDancer.js"></script>
     <script src="src/tangoDancer.js"></script>
+
+    <script src="src/runnyDancer.js"></script>
   </head>
   <body>
     <div class="topbar">
@@ -18,7 +20,8 @@
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="SwingDancer">swing</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="StretchDancer">stretch</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="TangoDancer">tango</a>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="OrbitDancer">orbit</a>    
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="OrbitDancer">orbit</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="RunnyDancer">runny</a>        
 
 
     </div>
@@ -31,9 +34,9 @@
           });
         })
         $('body').on('mouseenter','.dancer',function(){
-          $(this).animate({width: '-=50px', height: '-=50px'})
+          $(this).animate({width: '-=50px', height: '-=50px'},'fast')
         }).on('mouseleave','.dancer',function(){
-          $(this).animate({width: '+=50px', height: '+=50px'})
+          $(this).animate({width: '+=50px', height: '+=50px'},'fast')
         })
       });
     </script>
