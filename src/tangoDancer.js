@@ -32,7 +32,7 @@ TangoDancer.prototype.step = function(){
 
       if(Math.abs(dy)<50 && Math.abs(dx)<50){
         var random = Math.floor(Math.random()*3)-1;
-        console.log(random);
+        //console.log(random);
         this.$node.css({top:'+='+random+'px'});
         this.$node.css({left:'+='+random+'px'});
       }

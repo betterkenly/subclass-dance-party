@@ -47,5 +47,9 @@ $(document).ready(function(){
       group = true;
     }
   })
+
+  $('body').on('click',function(e){
+    console.log(e.clientX, e.clientY);
+  })
 });
 
