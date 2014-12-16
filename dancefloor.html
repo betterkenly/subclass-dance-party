@@ -6,11 +6,34 @@
     <script src="lib/jquery.js"></script>
     <script src="src/dancer.js"></script>
     <script src="src/blinkyDancer.js"></script>
+    <script src="src/swingDancer.js"></script>
+    <script src="src/stretchDancer.js"></script>
+    <script src="src/tangoDancer.js"></script>
   </head>
   <body>
     <div class="topbar">
       <span class="title">object dance party</span>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">add a blinky dancer</a>    </div>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">blinky</a>    
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="SwingDancer">swing</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="StretchDancer">stretch</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="TangoDancer">tango</a>  
+
+
+    </div>
     <script src="src/init.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('body').on('click','.dancer',function(e){
+          $(this).fadeOut('slow',function(){
+            $(this).remove();
+          });
+        })
+        $('body').on('mouseenter','.dancer',function(){
+          $(this).hide('slow');
+        }).on('mouseleave','.dancer',function(){
+          $(this).show('show');
+        })
+      });
+    </script>
   </body>
 </html>

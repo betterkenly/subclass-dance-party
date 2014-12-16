@@ -26,9 +26,26 @@ $(document).ready(function(){
     var dancer = new dancerMakerFunction(
       $("body").height() * Math.random(),
       $("body").width() * Math.random(),
-      Math.random() * 1000
+      Math.random() * 30
     );
+    window.dancers.push(dancer);
     $('body').append(dancer.$node);
   });
+
+  
+  var group = true;
+  $('body').on('dblclick',function(e){
+    if(group){
+      for(var i = 0; i<window.dancers.length; i++){
+        window.dancers[i].lineUp(e.clientX);
+      }
+      group = false;
+    } else {
+      for(var i = 0; i<window.dancers.length; i++){
+        window.dancers[i].ungroup();
+      }
+      group = true;
+    }
+  })
 });
 
