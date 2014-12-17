@@ -1,13 +1,15 @@
 var RunnyDancer = function(top, left, timeBetweenSteps){
-  BlinkyDancer.call(this,top,left,timeBetweenSteps);
+  Dancer.call(this,top,left,timeBetweenSteps);
   this.dx = Math.random()*5;
   this.dy = Math.random()*5;
 };
 
-RunnyDancer.prototype = Object.create(BlinkyDancer.prototype);
+RunnyDancer.prototype = Object.create(Dancer.prototype);
 RunnyDancer.prototype.constructor = RunnyDancer;
+
 RunnyDancer.prototype.step = function(){
- BlinkyDancer.prototype.step.call(this);
+ Dancer.prototype.step.call(this);
+ 
  this.$node.css({left: '+='+this.dx+'px'})
  this.$node.css({top: '+='+this.dy+'px'});
 
