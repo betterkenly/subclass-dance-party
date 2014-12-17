@@ -8,7 +8,7 @@ var OrbitDancer = function(top, left, timeBetweenSteps){
 };
 
 OrbitDancer.prototype = Object.create(Dancer.prototype);
-OrbitDancer.prototype.constructor = Dancer;
+OrbitDancer.prototype.constructor = OrbitDancer;
 OrbitDancer.prototype.lineUp = function(x,y,orientation){
   if(orientation === 'x'){
     this.$node.css({left: x+'px'},'slow');

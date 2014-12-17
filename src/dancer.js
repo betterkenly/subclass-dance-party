@@ -59,3 +59,4 @@ Dancer.prototype.ungroup = function(){
   this.$node.animate({left: this.left+'px', top: this.top+'px'});
 }
 
+
